@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS 2 Mathematics Practice Questions 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .quiz-info {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .quiz-info div {
+            display: inline-block;
+            margin-right: 30px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .student-info {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .student-info h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .start-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
+        }
+
+        .start-btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .question-container {
+            padding: 30px;
+            display: none;
+        }
+
+        .question {
+            margin-bottom: 35px;
+            padding: 25px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: #3498db;
+            background: #f1f8ff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: #3498db;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .submit-section {
+            padding: 30px;
+            background: #f8f9fa;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+            display: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .results {
+            display: none;
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .score {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s ease;
+        }
+
+        .admin-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+        }
+
+        .admin-section h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .download-btn:hover {
+            background: #138496;
+        }
+
+        .progress-info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .quiz-info div {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>OLUTAYO INTERNATIONAL COLLEGE</h1>
+            <p>Mathematics Practice Questions 2025 - SSS 2</p>
+        </div>
+
+        <div class="quiz-info">
+            <div>⏱️ Deadline: 13th July, 2025</div>
+            <div>📊 Questions: 50</div>
+            <div>✅ Multiple Choice</div>
+        </div>
+
+        <div class="student-info" id="studentInfo">
+            <h3>Student Information</h3>
+            <div class="form-group">
+                <label for="studentName">Full Name *</label>
+                <input type="text" id="studentName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="studentId">Student ID (Optional)</label>
+                <input type="text" id="studentId" placeholder="Enter your student ID">
+            </div>
+            <div class="form-group">
+                <label for="studentClass">Class</label>
+                <input type="text" id="studentClass" value="SSS 2" readonly>
+            </div>
+            <button class="start-btn" onclick="startQuiz()">Start Test</button>
+        </div>
+
+        <form id="quizForm">
+            <div class="progress-info" id="progressInfo" style="display: none;">
+                Questions are randomized.
+            </div>
+            <div class="question-container" id="questionsContainer">
+                </div>
+
+            <div class="submit-section" id="submitSection">
+                <button type="submit" class="submit-btn">Submit Test</button>
+            </div>
+        </form>
+
+        <div class="results" id="results">
+            <div class="score" id="scoreDisplay"></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="admin-section">
+                <h4>Teacher/Admin Functions (Local Storage Demo)</h4>
+                <p>Note: These functions operate only on data stored in *this browser*.</p>
+                <button class="download-btn" onclick="downloadResults()">Download All Results (CSV)</button>
+                <button class="download-btn" onclick="viewAllResults()">View All Results</button>
+                <button class="download-btn" onclick="clearAllResults()">Clear All Results</button>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 15px;">
+                <button onclick="location.reload()" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">New Student</button>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                "id": 1,
+        "text": "According to the gravitational field section, what is the gravitational potential due to a molecule of mass m at a distance of r from it?",
+        "options": ["Gm²/r", "Gm/r", "Gm²/r²", "G²m²/r"],
+        "correct": null
+    },
+    {
+        "id": 2,
+        "text": "The acceleration due to gravity may be defined as:",
+        "options": ["the force of attraction of the sun on the earth", "with which the earth revolves around the sun", "with which the earth attracts one-kilogram mass", "of the moon on the earth"],
+        "correct": null
+    },
+    {
+        "id": 3,
+        "text": "A reservoir is filled with a liquid of density 2000 kg m⁻³. If the bottom of the reservoir is at a depth of 10 m, the liquid pressure will be equal to:",
+        "options": ["3100 Nm⁻²", "30 m", "0.664 m", "0.1 m"],
+        "correct": null
+    },
+    {
+        "id": 4,
+        "text": "A small circular membrane is 10cm below the surface of a pool of mercury when the barometric height = 76 cm of mercury. If the density of mercury is 13600kgm⁻³, what is the pressure on the membrane in Nm⁻²? [g = 10ms⁻² ; 1 atm = 1.01 × 10⁵ Nm⁻² ]",
+        "options": ["6.80 × 10⁴ Nm⁻²", "1.17 × 10⁵ Nm⁻²", "1.63 × 10⁵ Nm⁻²"],
+        "correct": null
+    },
+    {
+        "id": 5,
+        "text": "A diver is 10 m below the water surface. What will be the volume when it rises to just below the surface if the atmospheric pressure is equivalent to a height of 10 m of water?",
+        "options": ["6cm³", "3cm³", "3cm³", "2cm³"],
+        "correct": null
+    },
+    {
+        "id": 6,
+        "text": "The pressure in a liquid:",
+        "options": ["is the same at all points", "decreases with depth", "is the same in all directions at a given point", "is equal to the atmospheric pressure"],
+        "correct": null
+    },
+    {
+        "id": 7,
+        "text": "A diver is 5 m below the surface of water at atmospheric pressure. If the atmospheric pressure on the diver is 1.02 × 10⁵ Pa, the total pressure is [g = 10 ms⁻² ; ρ = 1000 kgm⁻³ ]:",
+        "options": ["6.20 × 10⁴ Pa", "5.20 × 10⁴ Pa", "1.54 × 10⁵ Pa"],
+        "correct": null
+    },
+    {
+        "id": 8,
+        "text": "According to Pascal's principle, the pressure in a fluid is always:",
+        "options": ["dependent on density of the fluid", "distributed partially in all directions", "transmitted equally in all directions", "increasing with height"],
+        "correct": null
+    },
+    {
+        "id": 9,
+        "text": "The function of the manganese(IV)oxide in a Leclanché cell is to:",
+        "options": ["decrease the e.m.f of the cell", "increase the life of the cell", "prevent local action in the cell", "increase the resistance of the cell"],
+        "correct": null
+    },
+    {
+        "id": 10,
+        "text": "Formation of hydrogen bubbles at the copper plate of a primary cell is called:",
+        "options": ["polarisation", "back e.m.f", "local action", "electrolysis"],
+        "correct": null
+    },
+    {
+        "id": 11,
+        "text": "The lead-acid accumulator consists of:",
+        "options": ["lead as the positive electrode and lead oxide as the negative electrode", "lead oxide as the positive electrode and lead as the negative electrode", "hydrochloric acid as the electrolyte", "tetraoxosulphate(VI) acid as the electrolyte"],
+        "correct": null
+    },
+    {
+        "id": 12,
+        "text": "Which of the following properties is an advantage of a lead-acid accumulator over an alkaline accumulator?",
+        "options": ["Possesses low internal resistance", "Can be recharged", "Has shorter life span", "Possesses higher e.m.f"],
+        "correct": null
+    },
+    {
+        "id": 13,
+        "text": "Which of the following statements is not an advantage of an alkaline accumulator?",
+        "options": ["The electrolyte does not need attention when being recharged", "It has low internal resistance", "It has much longer life than lead-acid accumulator", "It is lighter than lead-acid accumulator"],
+        "correct": null
+    },
+    {
+        "id": 14,
+        "text": "The depolarising agent in a Leclanché cell is:",
+        "options": ["powdered carbon", "manganese (IV) oxide", "carbon rod", "ammonium chloride"],
+        "correct": null
+    },
+    {
+        "id": 15,
+        "text": "A galvanometer of internal resistance 100Ω gives a full scale deflection for a current of 10mA. The value of the resistance necessary to convert the galvanometer to a voltmeter reading up to 5V is:",
+        "options": ["400Ω", "500Ω", "490Ω", "590Ω"],
+        "correct": null
+    },
+    {
+        "id": 16,
+        "text": "For an ammeter, the resistance of the shunt should be:",
+        "options": ["much higher than the galvanometer resistance", "equal to the galvanometer resistance", "much lower than the galvanometer resistance", "independent of the galvanometer resistance"],
+        "correct": null
+    },
+    {
+        "id": 17,
+        "text": "On the earth's surface, would an object have its greatest weight?",
+        "options": ["at the equator", "between the equator and the poles", "half way between the equator and the south pole", "at the poles"],
+        "correct": null
+    },
+    {
+        "id": 18,
+        "text": "Given that the gravitational constant is 7.0 × 10⁻¹¹ Nm²kg⁻², the force of attraction between a 100kg mass of lead hanging one metre away from a 200kg mass of iron is:",
+        "options": ["7.0 × 10⁻⁶ N", "1.4 × 10⁻⁵ N", "2.1 × 10⁻⁵ N", "1.4 × 10⁻⁴ N"],
+        "correct": null
+    },
+    {
+        "id": 19,
+        "text": "The gravitational force of the moon is one-sixth that of the earth. A man who weighs 600N on the moon would weigh on the earth:",
+        "options": ["100N", "600N", "3600N", "36000N"],
+        "correct": null
+    },
+    {
+        "id": 20,
+        "text": "Which of the following statements about mass and weight is correct?",
+        "options": ["Weight is the force of gravity on a body", "The mass of a body is the quantity of matter in the body", "Weight is measured in Newton", "Mass is measured at the equator only"],
+        "correct": null
+    },
+    {
+        "id": 21,
+        "text": "If the force of attraction between the sun and the planets is removed, the planets will:",
+        "options": ["fall towards the sun", "scatter and stop moving", "continue to move in straight lines", "move perpendicular to their original orbits"],
+        "correct": null
+    },
+    {
+        "id": 22,
+        "text": "An iron rod is moved from the earth to the moon. Which of the following properties of the rod would remain unchanged?",
+        "options": ["Mass", "Weight", "Both mass and weight", "Neither mass nor weight"],
+        "correct": null
+    },
+    {
+        "id": 23,
+        "text": "A very sensitive spring balance was used to determine the weight of an object at the north pole. When the same spring balance was used to measure the weight of the same object at the equator, it was found that:",
+        "options": ["it is very hot at the equator", "the spring balance has expanded", "the acceleration due to gravity varies with latitude", "the mass of the body is reduced"],
+        "correct": null
+    },
+    {
+        "id": 24,
+        "text": "Two objects of masses 80kg and 50kg are separated by a distance of 0.2m. If the gravitational constant is 6.6 × 10⁻¹¹ Nm²kg⁻², calculate the gravitational attraction between them:",
+        "options": ["4.9 × 10⁻⁶ N", "1.3 × 10⁻⁵ N", "6.6 × 10⁻⁶ N", "6.6 × 10⁻⁵ N"],
+        "correct": null
+    },
+    {
+        "id": 25,
+        "text": "The mass of the earth is 6.0 × 10²⁴ kg and that of the moon is 7.0 × 10²² kg. If the distance between them is 4.0 × 10⁸ m, calculate the gravitational attraction between them:",
+        "options": ["1.1 × 10²⁰ N", "1.8 × 10²⁰ N", "1.8 × 10¹⁹ N", "1.8 × 10²⁰ N"],
+        "correct": null
+    },
+    {
+        "id": 26,
+        "text": "An object is situated within the earth's gravitational field. Which of the following factors does not affect the acceleration of free fall?",
+        "options": ["The distance of the object from the centre of the earth", "The latitude of the place on the earth", "The mass of the object", "The rotation of the earth"],
+        "correct": null
+    },
+    {
+        "id": 27,
+        "text": "The following properties of a solid are measured on earth: I. weight II. specific heat capacity III. density. Which of the properties I, II and III have a different value if measured in space?",
+        "options": ["I only", "II only", "III only", "I, II and III only"],
+        "correct": null
+    },
+    {
+        "id": 28,
+        "text": "A man and his friend have masses 70 kg and 60 kg respectively. If they are seated 1.0 m apart, calculate the gravitational force of attraction between them:",
+        "options": ["2.8 × 10⁻⁷ N", "4.2 × 10⁻⁷ N", "2.8 × 10⁻⁶ N", "4.2 × 10⁻⁶ N"],
+        "correct": null
+    },
+    {
+        "id": 29,
+        "text": "What is the gravitational potential due to a point mass m at a distance from it?",
+        "options": ["-Gm/r", "Gm/r²", "-Gm/r²", "Gm/r"],
+        "correct": null
+    },
+    {
+        "id": 30,
+        "text": "The magnitude of the gravitational force between two particles 0.10 m apart is 10 N. If the distance between them is increased to 0.20m, calculate the magnitude of the new force:",
+        "options": ["2.5 N", "5.0 N", "20 N", "40 N"],
+        "correct": null
+    },
+    {
+        "id": 31,
+        "text": "A stone weighing 400N on the earth's surface is shot into the atmosphere to an altitude of 4.0 × 10⁶ m. If the radius of the earth is 6.40 × 10⁶ m and assuming the inverse-square law of universal gravitation, what would be the weight of the missile at this altitude?",
+        "options": ["100N", "200N", "400N", "800N"],
+        "correct": null
+    },
+    {
+        "id": 32,
+        "text": "Which of the following statements is/are correct? I. Gravitational potential due to a point mass at a distance r away is proportional to r⁻¹ II. Gravitational field strength is a scalar quantity III. Gravitational intensity is proportional to the weight of a unit mass",
+        "options": ["I, II and III", "I and II only", "I only", "I only"],
+        "correct": null
+    },
+    {
+        "id": 33,
+        "text": "Two spheres of masses 100kg and 50 kg respectively have their centres separated by a distance of 1.0m. Calculate the magnitude of the force of attraction between them:",
+        "options": ["3.3 × 10⁻⁷ N", "6.70 × 10⁻⁷ N", "6.03 × 10⁻⁷ N", "6.03 × 10⁻⁸ N"],
+        "correct": null
+    },
+    {
+        "id": 34,
+        "text": "The magnitude of the gravitational attraction between the earth and a particle of mass 40 N. If the mass of the particle is 4kg, calculate the magnitude of the gravitational field intensity of the earth on the particle:",
+        "options": ["10.0 N kg⁻¹", "12.5 N kg⁻¹", "25.0 N kg⁻¹", "160.0 N kg⁻¹"],
+        "correct": null
+    },
+    {
+        "id": 35,
+        "text": "In the absence of gravitational force, the weight of a body is:",
+        "options": ["its mass", "zero", "its density", "its volume"],
+        "correct": null
+    },
+    {
+        "id": 36,
+        "text": "The correct relationship between \"G\" and \"g\" in a gravitational field is given by the equation (Where the symbols have their usual meanings):",
+        "options": ["g = GM/r²", "g = Gm/r²", "g = GM/r", "g = Gm/r"],
+        "correct": null
+    },
+    {
+        "id": 37,
+        "text": "Which of the following statements about the mass and the weight of a body is not correct?",
+        "options": ["mass is a scalar quantity", "weight is a function of the gravitational pull on it", "weight is a function of the gravitational pull on it", "weight at the equator and at the poles is the same"],
+        "correct": null
+    },
+    {
+        "id": 38,
+        "text": "Given that the gravitational constant is G Newtons, the universal law of gravitation states that the force of attraction between two masses M and M separated by a distance r is:",
+        "options": ["GrM₁M₂", "GM₁M₂/r²", "GM₁M₂/r", "GM₁M₂r²"],
+        "correct": null
+    },
+    {
+        "id": 39,
+        "text": "Two objects P and Q of masses 100 kg and 20 kg respectively are 1.2 m apart on a horizontal surface. Calculate the net gravitational force acting on Q:",
+        "options": ["9.26 × 10⁻⁸ N towards P", "1.11 × 10⁻⁷ N towards P", "9.26 × 10⁻⁸ N towards Q", "1.11 × 10⁻⁷ N towards Q"],
+        "correct": null
+    },
+    {
+        "id": 40,
+        "text": "Two bodies of masses 3.0 kg and 2.0 kg are separated by a distance of 50cm. Calculate the force of attraction between them:",
+        "options": ["2.38 × 10⁻⁹ N", "1.58 × 10⁻⁹ N", "2.38 × 10⁻⁸ N", "1.58 × 10⁻⁸ N"],
+        "correct": null
+    },
+    {
+        "id": 41,
+        "text": "Which of the following actions would increase the gravitational force between two positively charged particles?",
+        "options": ["Decreasing the mass of the particles.", "Decreasing the distance between the particles.", "Increasing the distance between the particles.", "Increasing the mass of the particles."],
+        "correct": null
+    },
+    {
+        "id": 42,
+        "text": "Which of the sketched graphs below illustrates the correct variation of the gravitational force, Fg, between two objects and the distance, d, between their centres?",
+        "options": [],
+        "correct": null
+    },
+    {
+        "id": 43,
+        "text": "Which of the following statements about the universal gravitational constant, G, is true?",
+        "options": ["It is a fundamental quantity.", "It has dimensions M⁻¹L³T⁻².", "Its S.I unit is N m² kg⁻¹.", "It is a vector quantity."],
+        "correct": null
+    },
+    {
+        "id": 44,
+        "text": "A rocket of mass m is fired from the Earth's surface such that it just escapes from the Earth's gravitational field. If R is the radius of the Earth and g the acceleration of free fall due to gravity, the escape velocity of the rocket is expressed as",
+        "options": ["√2gR", "√R/2g", "√2R/g", "√R²/2g"],
+        "correct": null
+    },
+    {
+        "id": 45,
+        "text": "Calculate the escape velocity of a satellite launched from the earth's surface (Take g as 10ms⁻¹ and the radius of the earth as 6.4 x 10⁶ m)",
+        "options": ["8.00 x 10⁴ ms⁻¹", "1.13 x 10⁴ ms⁻¹", "3.58 x 10⁴ ms⁻¹", "1.59 x 10⁴ ms⁻¹"],
+        "correct": null
+    },
+    {
+        "id": 46,
+        "text": "A planet has mass M, and radius R, if the universal gravitational constant is G, what is the expression for the escape velocity of an object on the planet?",
+        "options": ["(2M/R)^(1/2)", "(GR/M)^(1/2)", "(GM/R)^(1/2)", "(2GM/R)^(1/2)"],
+        "correct": null
+    },
+    {
+        "id": 47,
+        "text": "What is the escape velocity of a body on the surface of the earth if the gravitational constant is G and the mass of the earth is M? (Neglect effects closer to the surroundings)",
+        "options": ["$2GR$.", "$\\sqrt{2GR}$.", "$\\sqrt{2GM/R^2}$.", "$\\sqrt{2GM/R}$."],
+        "correct": null
+    },
+    {
+        "id": 48,
+        "text": "A rocket is launched from the surface of the earth. If the radius of the Earth is $6.4 \\times 10^6 \\text{m}$ and the acceleration of free fall due to gravity is $10 \\text{m/s}^2$, calculate the escape velocity of the rocket.",
+        "options": ["$3.2 \\times 10^3 \\text{m/s}$.", "$4.1 \\times 10^3 \\text{m/s}$.", "$8.0 \\times 10^3 \\text{m/s}$.", "$11.3 \\times 10^3 \\text{m/s}$."],
+        "correct": null
+    },
+    {
+        "id": 49,
+        "text": "A rocket of mass m is fired from the Earth's surface such that it just escapes from the Earth. If G is the universal gravitational constant, R is the radius of the Earth and g is the acceleration of free fall due to gravity, the escape velocity of the rocket is expressed as:",
+        "options": ["$\\sqrt{gR}$.", "$\\sqrt{2gR}$.", "$\\sqrt{R/2g}$.", "$\\sqrt{GM/R}$."],
+        "correct": null
+    },
+    {
+        "id": 50,
+        "text": "Calculate the escape velocity of a satellite launched from the earth's surface (Taking g as $10 \\text{m/s}^2$ and the radius of the earth as $6.4 \\times 10^6 \\text{m}$)?",
+        "options": ["$8.00 \\times 10^3 \\text{m/s}$.", "$1.13 \\times 10^4 \\text{m/s}$.", "$3.20 \\times 10^3 \\text{m/s}$.", "$4.50 \\times 10^3 \\text{m/s}$."],
+        "correct": null
+    },
+    {
+        "id": 51,
+        "text": "If planet mass M, and radius R, if the universal gravitational constant is G, what is the expression for the escape velocity of an object on the planet?",
+        "options": ["$\\sqrt{GM/R}$.", "$\\sqrt{2GM/R}$.", "$\\sqrt{2GR/M}$.", "$\\sqrt{GM/2R}$."],
+        "correct": null
+    },
+    {
+        "id": 52,
+        "text": "The primary coil of a transformer has 5500 turns. It is primarily used between a 240 V a.c. supply and a secondary coil to operate a device rated at 12 V. What is the number of turns in the secondary?",
+        "options": ["31000.", "2750.", "460.", "232."],
+        "correct": null
+    },
+    {
+        "id": 53,
+        "text": "Which of the following reduce the effect of the eddy currents in the soft iron laminated core of an induction coil? I. The capacitor in the circuit. II. The ratio of make and break contact. III. The soft iron core is laminated. IV. The secondary to that in the primary.",
+        "options": ["I only.", "II only.", "I and II only.", "II and III only."],
+        "correct": null
+    },
+    {
+        "id": 54,
+        "text": "A transformer has 400 turns of wire in the primary coil and 80 turns in the secondary coil. If the input voltage is 150 volts, calculate the magnitude of the output voltage.",
+        "options": ["150 V.", "55 V.", "36 V.", "15 V."],
+        "correct": null
+    },
+    {
+        "id": 55,
+        "text": "The voltage and current in the primary of a transformer are 200V and 4A respectively. If the transformer is used to light ten 12 V, 30 W bulbs, calculate its efficiency.",
+        "options": ["100%.", "90%.", "80%.", "75%."],
+        "correct": null
+    },
+    {
+        "id": 56,
+        "text": "A house is supplied with 240 V a.c. mains. To operate a doorbell rated at 8V, a transformer is used. If the number of turns in the primary coil of the transformer is 900, calculate the number of turns in the secondary coil of the transformer.",
+        "options": ["30.", "75.", "148.", "450."],
+        "correct": null
+    },
+    {
+        "id": 57,
+        "text": "An induction coil is generally used to:",
+        "options": ["rectify an alternating current.", "produce a high input voltage.", "smoothen a pulsating direct current.", "produce a large output voltage."],
+        "correct": null
+    },
+    {
+        "id": 58,
+        "text": "A transformer is required to supply 12 Vms to operate a toy from a fitted 240 Vms. If the number of turns in the secondary coil is 100, calculate the number of turns required in the primary coil.",
+        "options": ["2.0.", "5.0.", "1000.", "2000."],
+        "correct": null
+    },
+    {
+        "id": 59,
+        "text": "An ideal step down transformer steps up",
+        "options": ["Power.", "Energy.", "Current.", "Voltage."],
+        "correct": null
+    },
+    {
+        "id": 60,
+        "text": "A transformer connected to a 240 Vms has 3000 turns in its primary coil and 500 turns in its secondary coil. Calculate the output voltage.",
+        "options": ["400 V.", "40 V.", "4.0", "4.0 V."],
+        "correct": null
+    },
+    {
+        "id": 61,
+        "text": "A transformer has 400 turns and 200 turns in the primary and secondary windings respectively. If the current in the primary and secondary windings are 3A and 5A respectively, calculate the efficiency of the transformer.",
+        "options": ["85.0%.", "83.3%.", "37.5%.", "20.0%."],
+        "correct": null
+    },
+    {
+        "id": 62,
+        "text": "The current in the primary coil of a transformer is 2A. If the coil has 100 turns in the secondary 250 turns, calculate the current in the secondary coil.",
+        "options": ["0.2A.", "0.5A.", "2.5A.", "5.0A."],
+        "correct": null
+    },
+    {
+        "id": 63,
+        "text": "The core of a transformer is usually laminated in order to:",
+        "options": ["Reduce magnetic flux leakage.", "Prevent ohmic losses in the transformer.", "Prevent saturation of the transformer.", "Minimize magnetic reversal in the magnetic material."],
+        "correct": null
+    },
+    {
+        "id": 64,
+        "text": "Which of the following statements is not a reason for using soft iron instead of the core of a transformer?",
+        "options": ["It retains its magnetism for a long time.", "Is easily magnetized.", "Reduces energy loss.", "Is of low resistivity."],
+        "correct": null
+    },
+    {
+        "id": 65,
+        "text": "The primary of a transformer has 100 turns and its secondary has 200 turns. If the voltage at the primary is 100 V, determine the voltage at the secondary.",
+        "options": ["50 V.", "100 V.", "200 V.", "400 V."],
+        "correct": null
+    },
+    {
+        "id": 66,
+        "text": "In which of the following activities is an induction coil NOT used?",
+        "options": ["Investigation of high voltages.", "Study of electric discharge.", "Operation of X-ray tubes.", "A bell-tower transformer."],
+        "correct": null
+    },
+    {
+        "id": 67,
+        "text": "Which of the following devices does not make use of eddy current for its action?",
+        "options": ["galvanometer.", "speedometer.", "Ammeter.", "Induction coil."],
+        "correct": null
+    },
+    {
+        "id": 68,
+        "text": "Eddy currents can be reduced by:",
+        "options": ["using coil of high resistance.", "winding the coil on a soft iron core.", "creating holes in the metal plates.", "using coil of low resistance."],
+        "correct": null
+    },
+    {
+        "id": 69,
+        "text": "If the efficiency of a transformer is 100%, which of the following equations would be correct?",
+        "options": ["NP /NS =VP /VS .", "NP /NS =VS /VP .", "NP /NS =IP /IS .", "NP /NS =IS /IP ."],
+        "correct": null
+    },
+    {
+        "id": 70,
+        "text": "An electrical device has 50 turns in its primary coil and 20 turns in the secondary coil. The device can be a/an:",
+        "options": ["step-up transformer.", "step-down transformer.", "d.c. generator.", "a.c. generator."],
+        "correct": null
+    },
+    {
+        "id": 71,
+        "text": "The reason for laminating the soft iron core of a transformer is to:",
+        "options": ["Reduce eddy current.", "Reduce the magnetic flux.", "Increase the magnetic flux.", "Reduce the frequency."],
+        "correct": null
+    },
+    {
+        "id": 72,
+        "text": "Which of the following devices is associated with alternating currents only?",
+        "options": ["Induction coil.", "Lead-acid accumulator.", "Step-up transformer.", "Moving-coil galvanometer."],
+        "correct": null
+    },
+    {
+        "id": 73,
+        "text": "Which of the following actions will not increase the magnitude of the e.m.f. induced in the coil?",
+        "options": ["Increasing the number of turns in the coil.", "Increasing the strength of the magnetic field.", "Increasing the rate of change of flux linkage.", "Decreasing the resistance of the coil."],
+        "correct": null
+    },
+    {
+        "id": 74,
+        "text": "What is the relationship between the current in a coil and the induced e.m.f.?",
+        "options": ["The current is proportional to the induced e.m.f.", "The current is inversely proportional to the induced e.m.f.", "The current is independent of the induced e.m.f.", "The current opposes the change that causes the induced e.m.f."],
+        "correct": null
+    },
+    {
+        "id": 75,
+        "text": "The diagram below illustrates a bar magnet connected to a galvanometer. When the magnet is rapidly moved towards the coil I, the galvanometer deflects. II. The magnet is attracted by the coil. III. The magnet is repelled by the coil. Which of the statements above are correct?",
+        "options": [],
+        "correct": null
+    },
+    {
+        "id": 76,
+        "text": "A solenoid is constructed by winding an insulated copper on a long test tube. A constant direct current is passed through the solenoid. Which of the following actions will not increase the strength of the magnetic field of the solenoid?",
+        "options": ["Inserting: A. nickel rod in the test tube.", "brass rod in the test tube.", "soft iron rod in the test tube.", "steel rod in the test tube."],
+        "correct": null
+    },
+    {
+        "id": 77,
+        "text": "The process of producing electric current by a changing magnetic field is referred to as:",
+        "options": ["flux linkage.", "magnet induction.", "electromagnetic induction.", "electrostatic induction."],
+        "correct": null
+    },
+    {
+        "id": 78,
+        "text": "A rectangular coil of wire can rotate in a magnetic field. The ends of the coil are soldered to the two halves of a split ring. Two carbon brushes are made to press lightly against the split ring and when these are connected in circuit with a battery and rheostat, the coil rotates. This is a description of:",
+        "options": ["a suspended coil galvanometer.", "a moving-coil ammeter.", "a d.c generator.", "an electric motor."],
+        "correct": null
+    },
+    {
+        "id": 79,
+        "text": "Which of the following is not part of an a.c. generator?",
+        "options": ["Carbon brushes.", "Slip rings.", "Commutator.", "Field magnet."],
+        "correct": null
+    },
+    {
+        "id": 80,
+        "text": "Which electrical device does the diagram below illustrate?",
+        "options": [],
+        "correct": null
+    },
+    {
+        "id": 81,
+        "text": "An a.c. generator can be converted to a d.c. electric motor by replacing the:",
+        "options": ["slip rings with a split ring and connecting a battery.", "split ring with slip rings and connecting a battery.", "a.c. with d.c. source and connecting slip rings.", "a.c. with d.c. source and connecting split rings."],
+        "correct": null
+    },
+    {
+        "id": 82,
+        "text": "The purpose of commutator in a direct current motor is to:",
+        "options": ["increase the efficiency of the motor.", "reverse the direction of the current after every half rotation.", "enable a uniform couple to act on the coil.", "increase the number of rotations per second."],
+        "correct": null
+    },
+    {
+        "id": 83,
+        "text": "A transformer with 5500 turns in its primary is used between a 240V a.c supply and a 120 V kettle. Calculate the number of turns in the secondary",
+        "options": ["2750.", "750.", "460.", "232."],
+        "correct": null
+    },
+    {
+        "id": 84,
+        "text": "Which of the following reduce(s) the effect of the back e.m.f. generated in the primary coil of an induction coil? The capacitor in the circuit II. The make and break contact in the circuit III. The soft iron core used in the primary",
+        "options": ["I only.", "II only.", "I and II only.", "II and III only."],
+        "correct": null
+    },
+    {
+        "id": 85,
+        "text": "A transformer has 400 turns of wire in the primary coil and 40 turns in the secondary coil. If the input voltage is 150 volts, calculate the magnitude of the output voltage.",
+        "options": ["150 V.", "55 V.", "35 V.", "15 V."],
+        "correct": null
+    },
+    {
+        "id": 86,
+        "text": "The voltage and current in the primary of a transformer are 240V and 2 A respectively. If the transformer is used to light ten 12 V, 30 W bulbs, calculate its efficiency.",
+        "options": ["100%.", "90%.", "75%.", "50%."],
+        "correct": null
+    },
+    {
+        "id": 87,
+        "text": "A house is supplied with a 240 V a.c. mains. To operate a door bell rated at 8 V, a transformer is used if the number of turns in the primary coil of the transformer is 900, calculate the number of turns in the secondary coil of the transformer",
+        "options": ["30.", "240.", "248.", "450."],
+        "correct": null
+    },
+    {
+        "id": 88,
+        "text": "An induction coil is generally used to",
+        "options": ["rectify an alternating current.", "produce a large input voltage.", "smoothen a pulsating direct current.", "produce a large output voltage."],
+        "correct": null
+    },
+    {
+        "id": 89,
+        "text": "A transformer is required to supply 12 Vrms to operate a toy train set from a 240 Vrms a.c. If the number of turns in the secondary coil is 100, calculate the number of turns required in the primary coil.",
+        "options": ["5.", "12.", "2000.", "2400."],
+        "correct": null
+    },
+    {
+        "id": 90,
+        "text": "An ideal step -down transformer steps up",
+        "options": ["Power.", "energy.", "current.", "voltage."],
+        "correct": null
+    },
+    {
+        "id": 91,
+        "text": "A transformer connected to a 240 Vrms has 3000 turns in its primary coil and 500 turns in its secondary coil. Calculate the secondary voltage",
+        "options": ["4000 V.", "400 V.", "40 V.", "4 V."],
+        "correct": null
+    },
+    {
+        "id": 92,
+        "text": "A transformer has 400 turns and 200 turns in the primary and secondary windings respectively. If the current in the primary and secondary windings are 3A and 5A respectively, calculate the efficiency of the transformer.",
+        "options": ["85.0%.", "83.3%.", "37.5%.", "30.0%."],
+        "correct": null
+    },
+    {
+        "id": 93,
+        "text": "The current in the primary coil of a transformer is 2.5A. If the coil has 50 turns and the secondary 250 turns, calculate the current in the secondary coil. (Assume no energy losses in the transformer)",
+        "options": ["0.2A.", "0.5A.", "2.5A.", "5.0A."],
+        "correct": null
+    },
+    {
+        "id": 94,
+        "text": "The core of a transformer is usually laminated in order to",
+        "options": ["reduce magnetic flux leakage.", "prevent vibration of the transformer.", "prevent alternating magnetic reversal in the core much easier.", "make"],
+        "correct": null
+    },
+    {
+        "id": 95,
+        "text": "Which of the following statements is not a reason for using soft iron in making the core of a transformer?",
+        "options": ["It retains its magnetism for a long time.", "is easily magnetized.", "reduces energy loss due to hysteresis.", "is easily demagnetized."],
+        "correct": null
+    },
+    {
+        "id": 96,
+        "text": "The primary of a transformer has 100 turns and its secondary has 200 turns. If the voltage at the primary is 100 V, determine the voltage at the secondary.",
+        "options": ["50 V.", "100 V.", "200 V.", "400 V."],
+        "correct": null
+    },
+    {
+        "id": 97,
+        "text": "In which of the following activities is an induction coil not useful?",
+        "options": ["Investigation of high voltages.", "Study of electric discharge.", "Operation of X-ray tubes.", "A.C. power transmission."],
+        "correct": null
+    },
+    {
+        "id": 98,
+        "text": "Which of the following devices does not make use of eddy current for its action? A/An",
+        "options": ["galvanometer.", "speedometer.", "induction furnace.", "induction coil."],
+        "correct": null
+    },
+    {
+        "id": 99,
+        "text": "Eddy currents can be reduced by",
+        "options": ["using coil of high resistance.", "winding the coil on a soft iron core.", "creating holes in the metal plates.", "using coil of low resistance."],
+        "correct": null
+    },
+    {
+        "id": 100,
+        "text": "If the efficiency of a transformer is 100%, which of the following equations would be correct?",
+        "options": ["N<sub>s</sub>E<sub>s</sub> = N<sub>p</sub>E<sub>s</sub>", "N<sub>s</sub>I<sub>s</sub> = N<sub>p</sub>I<sub>p</sub>", "N<sub>s</sub>I<sub>s</sub> = N<sub>p</sub>E<sub>p</sub>", "I<sub>s</sub>E<sub>s</sub> = I<sub>p</sub>E<sub>p</sub>"],
+        "correct": null
+    },
+    {
+        "id": 101,
+        "text": "An electrical device has 50 turns in its primary coil and 20 turns in the secondary coil. The device can be a/an",
+        "options": ["step-up transformer.", "step-down transformer.", "d.c. generator.", "a.c. generator."],
+        "correct": null
+    },
+    {
+        "id": 102,
+        "text": "The reason for laminating the soft iron core of a transformer is to",
+        "options": ["Reduce eddy current.", "Reduce the magnetic flux.", "Increase the magnetic flux.", "Reduce the efficiency."],
+        "correct": null
+    },
+    {
+        "id": 103,
+        "text": "Which of the following devices is associated with alternating currents only?",
+        "options": ["Induction coil.", "Lead-acid accumulator.", "Step-up transformer.", "Moving-coil galvanometer."],
+        "correct": null
+            }
+        ];
+
+        let shuffledQuestions = [];
+        let currentStudent = null;
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function startQuiz() {
+            const name = document.getElementById('studentName').value.trim();
+            const studentId = document.getElementById('studentId').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
+            
+            if (!name) {
+                alert('Please enter your full name to continue.');
+                return;
+            }
+
+            currentStudent = {
+                name: name,
+                studentId: studentId || 'N/A',
+                class: studentClass || 'SSS 2', 
+                startTime: new Date().toISOString(),
+                questionOrder: []
+            };
+
+            // QUESTIONS ARE NOW SHUFFLED
+            shuffledQuestions = shuffleArray(questions); // Re-enabled shuffling
+            currentStudent.questionOrder = shuffledQuestions.map(q => q.id);
+
+            // Hide student info, show quiz
+            document.getElementById('studentInfo').style.display = 'none';
+            document.getElementById('progressInfo').style.display = 'block';
+            document.getElementById('questionsContainer').style.display = 'block';
+            document.getElementById('submitSection').style.display = 'block';
+
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            
+            shuffledQuestions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                
+                questionDiv.innerHTML = `
+                    <div class="question-number">Question ${index + 1}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="options">
+                        ${question.options.map((option, optIndex) => `
+                            <div class="option">
+                                <input type="radio" name="q${index}" value="${optIndex}" id="q${index}_${optIndex}">
+                                <label for="q${index}_${optIndex}">${String.fromCharCode(97 + optIndex)}) ${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function calculateScore() {
+            let score = 0;
+            const answers = [];
+            const formData = new FormData(document.getElementById('quizForm'));
+            
+            shuffledQuestions.forEach((question, index) => {
+                const selectedOptionValue = formData.get(`q${index}`);
+                const selectedAnswerIndex = selectedOptionValue ? parseInt(selectedOptionValue) : null;
+                const isCorrect = selectedAnswerIndex !== null && selectedAnswerIndex === question.correct;
+                
+                answers.push({
+                    questionId: question.id,
+                    questionText: question.text,
+                    selectedAnswerIndex: selectedAnswerIndex,
+                    selectedAnswerText: selectedAnswerIndex !== null ? question.options[selectedAnswerIndex] : 'No answer',
+                    correctAnswerIndex: question.correct,
+                    correctAnswerText: question.options[question.correct],
+                    isCorrect: isCorrect
+                });
+
+                if (isCorrect) {
+                    score++;
+                }
+            });
+            
+            return { score, answers };
+        }
+
+        async function submitQuiz(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const { score, answers } = calculateScore();
+            const totalQuestions = questions.length;
+            const percentage = (score / totalQuestions) * 100;
+
+            if (currentStudent) {
+                currentStudent.score = score;
+                currentStudent.totalQuestions = totalQuestions;
+                currentStudent.percentage = percentage.toFixed(2);
+                currentStudent.answers = answers;
+                currentStudent.endTime = new Date().toISOString();
+
+                // --- Backend Integration ---
+                try {
+                    const response = await fetch('/.netlify/functions/save-quiz-result', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(currentStudent),
+                    });
+
+                    if (response.ok) {
+                        console.log('Quiz results saved successfully to Google Sheet!');
+                        alert('Your quiz has been submitted successfully!'); // Provide user feedback
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Failed to save quiz results:', response.status, errorData.error || response.statusText);
+                        alert(`There was an error saving your results: ${errorData.error || response.statusText}. Please contact the administrator.`);
+                    }
+                } catch (error) {
+                    console.error('Network error or server issue:', error);
+                    alert('Network error or server issue. Could not submit results.');
+                }
+                
+                // Display results (after attempting to save to backend)
+                document.getElementById('questionsContainer').style.display = 'none';
+                document.getElementById('submitSection').style.display = 'none';
+                document.getElementById('progressInfo').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+
+                document.getElementById('scoreDisplay').innerText = `You scored ${score} out of ${totalQuestions} (${percentage.toFixed(2)}%)`;
+                document.getElementById('progressFill').style.width = `${percentage}%`;
+
+                // REMOVED: saveResult(currentStudent); // This was for local storage demo, now replaced by backend fetch
+            }
+        }
+
+        // Add event listener for form submission
+        document.getElementById('quizForm').addEventListener('submit', submitQuiz);
+
+        // --- Admin Functions (using localStorage for demonstration - keep for local testing or remove if not needed) ---
+        // IMPORTANT: For production, these functions should interact with a secure backend.
+        // localStorage is client-side and easily accessible/editable by users.
+
+        function saveResult(result) { // This function is now only called if you explicitly call it elsewhere
+            let allResults = loadAllResults();
+            allResults.push(result);
+            localStorage.setItem('quizResults', JSON.stringify(allResults));
+            console.log('Result saved to localStorage:', result);
+        }
+
+        function loadAllResults() {
+            const results = localStorage.getItem('quizResults');
+            return results ? JSON.parse(results) : [];
+        }
+
+        function downloadResults() {
+            const allResults = loadAllResults();
+            if (allResults.length === 0) {
+                alert('No results to download.');
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            
+            // CSV Header - Ensure this matches the order of data sent to Google Sheet if you want consistency
+            const headers = ['Timestamp', 'Student Name', 'Student ID', 'Class', 'Score', 'Total Questions', 'Percentage', 'Quiz Start Time', 'Quiz End Time', 'Question Order', 'Answers Details'];
+            csvContent += headers.join(',') + "\n";
+
+            allResults.forEach(result => {
+                const row = [
+                    `"${new Date(result.endTime).toLocaleString()}"`, // Using endTime as general submission timestamp
+                    `"${result.name}"`,
+                    `"${result.studentId}"`,
+                    `"${result.class || 'SSS 2'}"`, // Default to SSS 2 if class is not provided
+                    result.score,
+                    result.totalQuestions,
+                    result.percentage,
+                    `"${result.startTime}"`,
+                    `"${result.endTime}"`,
+                    `"${JSON.stringify(result.questionOrder).replace(/"/g, '""')}"`, // Stringify and escape for CSV
+                    `"${JSON.stringify(result.answers).replace(/"/g, '""')}"` // Stringify and escape for CSV
+                ];
+                csvContent += row.join(',') + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "quiz_results_local.csv"); // Renamed to clarify it's local
+            document.body.appendChild(link); // Required for Firefox
+            link.click();
+            document.body.removeChild(link); // Clean up
+        }
+
+        function viewAllResults() {
+            const allResults = loadAllResults();
+            if (allResults.length === 0) {
+                alert('No results to display.');
+                return;
+            }
+
+            let displayString = "--- All Quiz Results (Local) ---\n\n"; // Added (Local) for clarity
+            allResults.forEach((result, index) => {
+                displayString += `Student ${index + 1}:\n`;
+                displayString += `  Name: ${result.name}\n`;
+                displayString += `  Student ID: ${result.studentId}\n`;
+                displayString += `  Class: ${result.class || 'SSS 2'}\n`;
+                displayString += `  Score: ${result.score}/${result.totalQuestions} (${result.percentage}%)\n`;
+                displayString += `  Start Time: ${new Date(result.startTime).toLocaleString()}\n`;
+                displayString += `  End Time: ${new Date(result.endTime).toLocaleString()}\n`;
+                displayString += `  Detailed Answers (first 5 for brevity):\n`;
+                result.answers.slice(0, 5).forEach(ans => {
+                    displayString += `    Q${ans.questionId}: Selected ${ans.selectedAnswerText}, Correct ${ans.correctAnswerText} (${ans.isCorrect ? 'Correct' : 'Incorrect'})\n`;
+                });
+                if (result.answers.length > 5) {
+                    displayString += `    ...and ${result.answers.length - 5} more answers.\n`;
+                }
+                displayString += "\n------------------------\n\n";
+            });
+            alert(displayString); // Using alert for simplicity, consider a modal for better UX
+        }
+
+        function clearAllResults() {
+            if (confirm('Are you sure you want to clear ALL LOCAL quiz results? This action cannot be undone.')) {
+                localStorage.removeItem('quizResults');
+                alert('All LOCAL quiz results have been cleared.');
+            }
+        }
+
+    </script>
+</body>
+</html>
